@@ -10,6 +10,9 @@ const Header = () => {
 					Home
 				</NavLink>
 			</li>
+			<li className="mr-2">
+				<NavLink to="/services">Services</NavLink>
+			</li>
 		</>
 	);
 	return (
