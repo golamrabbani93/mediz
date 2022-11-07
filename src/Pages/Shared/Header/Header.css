@@ -4,6 +4,9 @@
 	background-color: transparent;
 	color: rgba(255, 255, 255, 0.753);
 }
+.btn-ghost:hover {
+	background-color: transparent;
+}
 .menu-horizontal li > a.active {
 	background: transparent;
 	font-weight: bolder;

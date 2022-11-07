@@ -54,7 +54,7 @@ const Header = () => {
 						<div className="mr-auto">
 							<Link
 								to="/"
-								className=" btn btn-ghost hidden lg:flex normal-case text-xl text-white bg-transparent text-right mx-auto "
+								className="font-bold text-4xl btn btn-ghost hidden lg:flex normal-case  text-white bg-transparent text-right mx-auto "
 							>
 								MeDiz
 							</Link>
