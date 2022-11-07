@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link, NavLink} from 'react-router-dom';
+import './Header.css';
 
 const Header = () => {
 	const navlink = (
@@ -8,15 +9,6 @@ const Header = () => {
 				<NavLink to="/" end>
 					Home
 				</NavLink>
-			</li>
-			<li className="mr-2">
-				<NavLink to="">Courses</NavLink>
-			</li>
-			<li className="mr-2">
-				<NavLink to="">FAQ</NavLink>
-			</li>
-			<li className="mr-2">
-				<NavLink to="">Blog</NavLink>
 			</li>
 		</>
 	);
@@ -61,7 +53,7 @@ const Header = () => {
 								to="/"
 								className=" btn btn-ghost hidden lg:flex normal-case text-xl text-white bg-transparent text-right mx-auto "
 							>
-								CodeWars
+								MeDiz
 							</Link>
 						</div>
 					</div>
@@ -70,7 +62,7 @@ const Header = () => {
 							to="/"
 							className=" btn btn-ghost flex lg:hidden normal-case text-xl text-white bg-primary text-right mx-auto"
 						>
-							CodeWars
+							MeDiz
 						</Link>
 					</div>
 
@@ -100,7 +92,7 @@ const Header = () => {
 							</li>
 						</ul>
 					</div>
-					<Link to="/login" className="btn">
+					<Link to="/login" className="btn hidden lg:flex">
 						Login
 					</Link>
 				</div>

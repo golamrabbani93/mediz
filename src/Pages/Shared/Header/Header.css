@@ -1,0 +1,12 @@
+.navgation > li > a:hover,
+.navbar > li > a:hover {
+	background-color: transparent;
+	color: rgba(255, 255, 255, 0.596);
+}
+.menu-horizontal li > a.active {
+	background: transparent;
+	font-weight: bolder;
+}
+.menu .menu-compact li > a.active {
+	background: #3d46c9 !important;
+}
