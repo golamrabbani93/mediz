@@ -4,14 +4,31 @@ import {AuthContext} from '../../../../contexts/AuthProvider/AuthProvider';
 
 const SignUp = () => {
 	const {userCreateWithEmail} = useContext(AuthContext);
-	console.log('🚀🚀: SignUp -> userCreateWithEmail', userCreateWithEmail);
+	const handleSignUp = (e) => {
+		e.preventDefault();
+		const form = e.target;
+		const name = form.name.value;
+		const photo = form.photo.value;
+		const email = form.email.value;
+		const password = form.password.value;
+
+		userCreateWithEmail(email, password)
+			.then((result) => {
+				const user = result.user;
+				form.reset();
+				console.log('🚀🚀: handleSignUp -> user', user);
+			})
+			.catch((err) => {
+				console.error(err);
+			});
+	};
 	return (
 		<div>
 			<div className="hero min-h-screen bg-base-200">
 				<div className="hero-content ">
 					<div className="card flex-shrink-0 w-96  shadow-2xl bg-base-100 text-white">
 						<h1 className="text-5xl font-bold my-4 text-center">Sign Up!</h1>
-						<div className="card-body ">
+						<form onSubmit={handleSignUp} className="card-body ">
 							<div className="form-control">
 								<label className="label">
 									<span className="label-text">Full Name</span>
@@ -70,7 +87,7 @@ const SignUp = () => {
 							<div className="form-control mt-6">
 								<button className="btn btn-primary">Sign Up</button>
 							</div>
-						</div>
+						</form>
 					</div>
 				</div>
 			</div>
