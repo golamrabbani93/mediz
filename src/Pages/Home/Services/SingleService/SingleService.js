@@ -22,7 +22,7 @@ const SingleService = ({service}) => {
 						PRICE: <span className="text-3xl text-bold">${price}</span>
 					</p>
 					<div className="card-actions my-3">
-						<Link to={`service/${_id}`}>
+						<Link to={`/service/${_id}`}>
 							<button className="btn btn-primary">See Details</button>
 						</Link>
 					</div>
