@@ -83,23 +83,26 @@ const Header = () => {
 								</div>
 							</div>
 						</label>
-						<ul
-							tabIndex={0}
-							className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-300 rounded-box w-52"
-						>
-							<li className="font-bold">{user?.displayName}</li>
-							<li>
-								<Link className="justify-between">Edit Profile</Link>
-							</li>
+						{user?.uid ? (
+							<ul
+								tabIndex={0}
+								className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white text-black rounded-box w-52"
+							>
+								<li className="font-bold text-center">{user?.displayName}</li>
+								<li>
+									<Link className="justify-between">Edit Profile</Link>
+								</li>
 
-							<li>
-								<button>Logout</button>
-							</li>
-						</ul>
+								<li>
+									<button>Logout</button>
+								</li>
+							</ul>
+						) : (
+							<Link to="/signin" className="btn hidden lg:flex">
+								Sign In
+							</Link>
+						)}
 					</div>
-					<Link to="/signin" className="btn hidden lg:flex">
-						Sign In
-					</Link>
 				</div>
 			</div>
 		</header>

@@ -4,7 +4,6 @@ import {AuthContext} from '../../../../contexts/AuthProvider/AuthProvider';
 
 const SignUp = () => {
 	const {userCreateWithEmail, userProfileUpdate} = useContext(AuthContext);
-	console.log('🚀🚀: SignUp -> userProfileUpdate', userProfileUpdate);
 	const handleSignUp = (e) => {
 		e.preventDefault();
 		const form = e.target;
@@ -15,10 +14,9 @@ const SignUp = () => {
 
 		userCreateWithEmail(email, password)
 			.then((result) => {
-				const user = result.user;
+				// const user = result.user;
 				form.reset();
 				handleUpdate(name, photo);
-				console.log('🚀🚀: handleSignUp -> user', user);
 			})
 			.catch((err) => {
 				console.error(err);
