@@ -87,7 +87,7 @@ const Header = () => {
 							tabIndex={0}
 							className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-300 rounded-box w-52"
 						>
-							<li className="font-bold">{user}</li>
+							<li className="font-bold">{user?.displayName}</li>
 							<li>
 								<Link className="justify-between">Edit Profile</Link>
 							</li>
