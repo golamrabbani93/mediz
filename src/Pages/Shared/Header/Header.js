@@ -95,8 +95,8 @@ const Header = () => {
 							</li>
 						</ul>
 					</div>
-					<Link to="/login" className="btn hidden lg:flex">
-						Login
+					<Link to="/signin" className="btn hidden lg:flex">
+						Sign In
 					</Link>
 				</div>
 			</div>
