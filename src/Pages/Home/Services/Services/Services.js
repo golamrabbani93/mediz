@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
+import SingleService from '../SingleService/SingleService';
 
 const Services = () => {
 	const [services, setServices] = useState([]);
-	console.log('🚀🚀: Services -> services', services);
 	useEffect(() => {
 		const url = `http://localhost:5000/services`;
 		fetch(url)
@@ -11,7 +11,15 @@ const Services = () => {
 				setServices(data);
 			});
 	}, []);
-	return <div></div>;
+	return (
+		<div className="container mx-auto">
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-20 gap-5">
+				{services.map((service) => (
+					<SingleService key={service._id} service={service}></SingleService>
+				))}
+			</div>
+		</div>
+	);
 };
 
 export default Services;
