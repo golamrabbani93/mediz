@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import SingleService from '../Home/Services/SingleService/SingleService';
-
 const Services = () => {
 	const [services, setServices] = useState([]);
-	console.log('🚀🚀: Services -> services', services);
 	useEffect(() => {
 		const url = `http://localhost:5000/services`;
 		fetch(url)
