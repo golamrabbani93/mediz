@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {useLoaderData} from 'react-router-dom';
 import {PhotoProvider, PhotoView} from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import {FaQuoteRight} from 'react-icons/fa';
+import {AuthContext} from '../../../contexts/AuthProvider/AuthProvider';
 const Service = () => {
+	const {user} = useContext(AuthContext);
 	const service = useLoaderData();
 	console.log('🚀🚀: Service -> service', service);
 	const {_id, img, title, price, description} = service;
@@ -37,6 +39,7 @@ const Service = () => {
 						<FaQuoteRight className="mx-auto" />
 					</p>
 					<button className="btn btn-primary mt-7">Add Review</button>
+					{user?.uid ? '' : <p className="text-red-700 font-bold">Please login to add a review</p>}
 				</div>
 
 				<div className="testimonial mt-7">
