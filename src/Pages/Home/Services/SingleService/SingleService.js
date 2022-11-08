@@ -18,7 +18,7 @@ const SingleService = ({service}) => {
 					</p>
 					<div className="card-actions my-3">
 						<Link to={`service/${_id}`}>
-							<button className="btn btn-primary">Buy Now</button>
+							<button className="btn btn-primary">See Details</button>
 						</Link>
 					</div>
 				</div>

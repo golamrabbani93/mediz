@@ -3,8 +3,9 @@ import SingleService from '../SingleService/SingleService';
 
 const Services = () => {
 	const [services, setServices] = useState([]);
+	const limit = 3;
 	useEffect(() => {
-		const url = `http://localhost:5000/services`;
+		const url = `http://localhost:5000/services?limit=${limit}`;
 		fetch(url)
 			.then((res) => res.json())
 			.then((data) => {
