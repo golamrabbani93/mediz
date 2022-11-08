@@ -4,7 +4,7 @@ import {AuthContext} from '../../../contexts/AuthProvider/AuthProvider';
 import './Header.css';
 
 const Header = () => {
-	const {user} = useContext(AuthContext);
+	const {user, userSignOut} = useContext(AuthContext);
 	const navlink = (
 		<>
 			<li className="mr-2">
@@ -17,6 +17,11 @@ const Header = () => {
 			</li>
 		</>
 	);
+	const handleSignOut = () => {
+		userSignOut()
+			.then((result) => {})
+			.catch((err) => {});
+	};
 	return (
 		<header>
 			<div className="bg-primary navgation">
@@ -75,15 +80,15 @@ const Header = () => {
 						<ul className="menu menu-horizontal p-0">{navlink}</ul>
 					</div>
 
-					<div className="dropdown dropdown-end ">
-						<label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-							<div className="avatar online">
-								<div className="w-10 rounded-full">
-									<img src="https://placeimg.com/80/80/people" alt="" />
+					{user?.uid ? (
+						<div className="dropdown dropdown-end ">
+							<label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+								<div className="avatar online">
+									<div className="w-10 rounded-full">
+										<img src="https://placeimg.com/80/80/people" alt="" />
+									</div>
 								</div>
-							</div>
-						</label>
-						{user?.uid ? (
+							</label>
 							<ul
 								tabIndex={0}
 								className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white text-black rounded-box w-52"
@@ -94,15 +99,15 @@ const Header = () => {
 								</li>
 
 								<li>
-									<button>Logout</button>
+									<button onClick={handleSignOut}>Logout</button>
 								</li>
 							</ul>
-						) : (
-							<Link to="/signin" className="btn hidden lg:flex">
-								Sign In
-							</Link>
-						)}
-					</div>
+						</div>
+					) : (
+						<Link to="/signin" className="btn hidden lg:flex">
+							Sign In
+						</Link>
+					)}
 				</div>
 			</div>
 		</header>
