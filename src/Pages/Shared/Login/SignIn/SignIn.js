@@ -26,7 +26,7 @@ const SignIn = () => {
 									</Link>
 									<span className="label-text-alt ">
 										New to Mediz
-										<Link href="#" className=" link link-hover ml-1">
+										<Link to="/signup" className=" link link-hover ml-1">
 											Sign up
 										</Link>
 									</span>
