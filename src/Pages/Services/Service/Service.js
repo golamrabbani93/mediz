@@ -1,5 +1,5 @@
-import React, {useContext} from 'react';
-import {useLoaderData} from 'react-router-dom';
+import React, {useContext, useState} from 'react';
+import {Link, useLoaderData} from 'react-router-dom';
 import {PhotoProvider, PhotoView} from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import {FaQuoteRight} from 'react-icons/fa';
@@ -7,7 +7,9 @@ import {AuthContext} from '../../../contexts/AuthProvider/AuthProvider';
 const Service = () => {
 	const {user} = useContext(AuthContext);
 	const service = useLoaderData();
-	console.log('🚀🚀: Service -> service', service);
+	const [login, setLogin] = useState(false);
+	console.log('🚀🚀: Service -> login', login);
+	// console.log('🚀🚀: Service -> service', service);
 	const {_id, img, title, price, description} = service;
 	return (
 		<div>
@@ -38,8 +40,17 @@ const Service = () => {
 					<p className="text-6xl mt-5 text-warning font-bold ">
 						<FaQuoteRight className="mx-auto" />
 					</p>
-					<button className="btn btn-primary mt-7">Add Review</button>
-					{user?.uid ? '' : <p className="text-red-700 font-bold">Please login to add a review</p>}
+					<button onClick={() => setLogin(!login)} className="btn btn-primary mt-7">
+						Add Review
+					</button>
+					{!user && (
+						<p className={`mt-3 ${login ? 'block' : 'hidden'}`}>
+							<span className=" text-white font-bold">Please Sign In to add a review</span>
+							<Link to="/signin" className="link ml-2">
+								Sign In
+							</Link>
+						</p>
+					)}
 				</div>
 
 				<div className="testimonial mt-7">
