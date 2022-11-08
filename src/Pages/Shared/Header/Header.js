@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Link, NavLink} from 'react-router-dom';
+import {AuthContext} from '../../../contexts/AuthProvider/AuthProvider';
 import './Header.css';
 
 const Header = () => {
+	const {user} = useContext(AuthContext);
 	const navlink = (
 		<>
 			<li className="mr-2">
@@ -85,7 +87,7 @@ const Header = () => {
 							tabIndex={0}
 							className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-300 rounded-box w-52"
 						>
-							<li className="font-bold">name</li>
+							<li className="font-bold">{user}</li>
 							<li>
 								<Link className="justify-between">Edit Profile</Link>
 							</li>
