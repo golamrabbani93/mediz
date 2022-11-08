@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Link} from 'react-router-dom';
+import {AuthContext} from '../../../../contexts/AuthProvider/AuthProvider';
 
 const SignUp = () => {
+	const {userCreateWithEmail} = useContext(AuthContext);
+	console.log('🚀🚀: SignUp -> userCreateWithEmail', userCreateWithEmail);
 	return (
 		<div>
 			<div className="hero min-h-screen bg-base-200">
@@ -11,27 +14,47 @@ const SignUp = () => {
 						<div className="card-body ">
 							<div className="form-control">
 								<label className="label">
-									<span className="label-text">Name</span>
+									<span className="label-text">Full Name</span>
 								</label>
-								<input type="text" placeholder="Full Name" className="input input-bordered" />
+								<input
+									type="text"
+									placeholder="Full Name"
+									name="name"
+									className="input input-bordered"
+								/>
 							</div>
 							<div className="form-control">
 								<label className="label">
 									<span className="label-text">Photo URL</span>
 								</label>
-								<input type="text" placeholder="Photo URL" className="input input-bordered" />
+								<input
+									type="text"
+									placeholder="Photo URL"
+									name="photo"
+									className="input input-bordered"
+								/>
 							</div>
 							<div className="form-control">
 								<label className="label">
 									<span className="label-text">Email</span>
 								</label>
-								<input type="email" placeholder="Email" className="input input-bordered" />
+								<input
+									type="email"
+									placeholder="Email"
+									name="email"
+									className="input input-bordered"
+								/>
 							</div>
 							<div className="form-control">
 								<label className="label">
 									<span className="label-text">Password</span>
 								</label>
-								<input type="password" placeholder="Password" className="input input-bordered" />
+								<input
+									type="password"
+									placeholder="Password"
+									name="password"
+									className="input input-bordered"
+								/>
 								<label className="label">
 									<Link href="#" className="label-text-alt link link-hover">
 										Forgot password?
