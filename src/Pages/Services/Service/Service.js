@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Link, useLoaderData} from 'react-router-dom';
 import {PhotoProvider, PhotoView} from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
@@ -8,6 +8,8 @@ const Service = () => {
 	const {user} = useContext(AuthContext);
 	const service = useLoaderData();
 	const [login, setLogin] = useState(false);
+	const [reviews, setReviews] = useState([]);
+	console.log('🚀🚀: Service -> reviews', reviews);
 	const {_id, img, title, price, description} = service;
 	const currentDate = new Date();
 	const [month, day, year] = [
@@ -46,6 +48,16 @@ const Service = () => {
 				// toast.success('Order Successfull');
 			});
 	};
+
+	//*load all review
+	useEffect(() => {
+		const url = `http://localhost:5000/review?id=${_id}`;
+		fetch(url)
+			.then((res) => res.json())
+			.then((data) => {
+				setReviews(data);
+			});
+	}, [_id]);
 	return (
 		<div>
 			{/* //*service details section */}
@@ -129,7 +141,7 @@ const Service = () => {
 						</p>
 					)}
 				</div>
-
+				{/* //*review section */}
 				<div className="testimonial mt-7">
 					<div className="single-testimonial flex border w-3/4 mx-auto justify-center items-center rounded-xl border-warning">
 						<div className="text p-10 text-white">
