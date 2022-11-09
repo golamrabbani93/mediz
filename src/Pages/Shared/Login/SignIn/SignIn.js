@@ -4,9 +4,6 @@ import {AuthContext} from '../../../../contexts/AuthProvider/AuthProvider';
 
 const SignIn = () => {
 	const {userSignInWithEmail} = useContext(AuthContext);
-	// const navigate = useNavigate();
-	// const location = useLocation();
-	// const from = location.state?.from?.pathname || '/';
 	const navigate = useNavigate();
 	const location = useLocation();
 	const from = location.state?.from?.pathname || '/';
