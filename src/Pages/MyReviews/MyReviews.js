@@ -21,6 +21,10 @@ const MyReviews = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
+				if (data.deletedCount > 0) {
+					const restReviews = MyReviews.filter((rev) => rev._id !== MyReview._id);
+					SetMyReviews(restReviews);
+				}
 			});
 	};
 	return (
@@ -31,9 +35,9 @@ const MyReviews = () => {
 				</div>
 			) : (
 				<div>
-					{MyReviews.length > 0 ? (
+					{MyReviews?.length > 0 ? (
 						<h2 className="text-center my-6 text-3xl font-bold text-white">
-							{MyReviews.length} Reviews Found
+							{MyReviews?.length} Reviews Found
 						</h2>
 					) : (
 						<h2 className="text-center my-6 text-3xl font-bold text-white">No Reviews Found</h2>
@@ -42,7 +46,7 @@ const MyReviews = () => {
 						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 							{spinner
 								? ''
-								: MyReviews.map((MyReview) => (
+								: MyReviews?.map((MyReview) => (
 										<SIngleReview
 											key={MyReview._id}
 											MyReview={MyReview}
