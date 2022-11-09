@@ -12,8 +12,8 @@ export const AuthContext = createContext();
 const AuthProvider = ({children}) => {
 	const [user, setUser] = useState();
 	const [loader, setLoader] = useState(true);
+	const [spinner, setSpinner] = useState(true);
 	const auth = getAuth(app);
-
 	//*create user with email and password
 	const userCreateWithEmail = (email, password) => {
 		setLoader(true);
@@ -53,6 +53,8 @@ const AuthProvider = ({children}) => {
 		userSignOut,
 		loader,
 		setLoader,
+		spinner,
+		setSpinner,
 	};
 	return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
 };

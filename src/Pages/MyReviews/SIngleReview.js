@@ -1,7 +1,6 @@
 import React from 'react';
 
 const SIngleReview = ({MyReview}) => {
-	console.log('🚀🚀: SIngleReview -> MyReview', MyReview);
 	const {date, serviceImg, service_name, message} = MyReview;
 	return (
 		<div className="card w-72 mx-auto md:w-96 bg-base-100 shadow-xl image-full">
@@ -9,9 +8,9 @@ const SIngleReview = ({MyReview}) => {
 				<img src={serviceImg} alt="Shoes" />
 			</figure>
 			<div className="card-body ">
-				<h2 className="card-title text-white">{service_name}</h2>
-				<p className="text-white">{message}</p>
-				<p className="text-white">{date}</p>
+				<h2 className="card-title text-white font-bold">{service_name}</h2>
+				<p className="text-white font-bold mb-0">{message}</p>
+				<p className="text-white -mt-4">{date}</p>
 				<div className="card-actions mt-5 grid grid-cols-2 ">
 					<button className="btn btn-circle btn-secondary">
 						<svg
