@@ -4,6 +4,7 @@ import {PhotoProvider, PhotoView} from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import {FaQuoteRight} from 'react-icons/fa';
 import {AuthContext} from '../../../contexts/AuthProvider/AuthProvider';
+import Review from '../Review/Review';
 const Service = () => {
 	const {user} = useContext(AuthContext);
 	const service = useLoaderData();
@@ -143,19 +144,9 @@ const Service = () => {
 				</div>
 				{/* //*review section */}
 				<div className="testimonial mt-7">
-					<div className="single-testimonial flex border w-3/4 mx-auto justify-center items-center rounded-xl border-warning">
-						<div className="text p-10 text-white">
-							<p className="w-3/4 font-bold">
-								Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi explicabo placeat
-								iste tempore cum quo eligendi, beatae nostrum dolore nihil?
-							</p>
-							<h2 className="text-4xl text-warning font-bold">name</h2>
-							<h5 className="text-xl text-warning font-bold">date</h5>
-						</div>
-						<div className="img p-10 ">
-							<img className="rounded-full" src="https://placeimg.com/200/200/people" alt="" />
-						</div>
-					</div>
+					{reviews.map((review) => (
+						<Review key={review._id} review={review}></Review>
+					))}
 				</div>
 			</div>
 		</div>
