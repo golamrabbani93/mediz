@@ -8,9 +8,44 @@ const Service = () => {
 	const {user} = useContext(AuthContext);
 	const service = useLoaderData();
 	const [login, setLogin] = useState(false);
-	console.log('🚀🚀: Service -> login', login);
-	// console.log('🚀🚀: Service -> service', service);
 	const {_id, img, title, price, description} = service;
+	const currentDate = new Date();
+	const [month, day, year] = [
+		currentDate.getMonth(),
+		currentDate.getDate(),
+		currentDate.getFullYear(),
+	];
+	const date = `${day}-${month}-${year}`;
+
+	const handleReview = (e) => {
+		e.preventDefault();
+		const form = e.target;
+		const message = form.message.value;
+		const name = form.name.value;
+		const phone = form.phone.value;
+		const review = {
+			reviewID: _id,
+			service_name: title,
+			name: name,
+			img: img,
+			email: user.email,
+			phone: phone,
+			message: message,
+		};
+		fetch('http://localhost:5000/review', {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json',
+			},
+			body: JSON.stringify(review),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				form.reset();
+				// toast.success('Order Successfull');
+			});
+	};
 	return (
 		<div>
 			{/* //*service details section */}
@@ -40,10 +75,52 @@ const Service = () => {
 					<p className="text-6xl mt-5 text-warning font-bold ">
 						<FaQuoteRight className="mx-auto" />
 					</p>
-					<button onClick={() => setLogin(!login)} className="btn btn-primary mt-7">
+					<label
+						htmlFor="my-modal-6"
+						onClick={() => setLogin(!login)}
+						className="btn btn-primary mt-7"
+					>
 						Add Review
-					</button>
-					{!user && (
+					</label>
+					{user?.uid ? (
+						<>
+							{/* Put this part before </body> tag */}
+							<input type="checkbox" id="my-modal-6" className="modal-toggle" />
+							<div className="modal modal-bottom sm:modal-middle">
+								<form onSubmit={handleReview} className="modal-box relative">
+									<label
+										htmlFor="my-modal-6"
+										className="btn btn-sm btn-circle absolute right-2 top-2"
+									>
+										✕
+									</label>
+									<textarea
+										className="textarea textarea-secondary"
+										placeholder="Review Message"
+										name="message"
+										style={{width: '300px'}}
+									></textarea>
+									<div className="grid grid-cols-2 gap-5 mt-4 justify-center items-center">
+										<input
+											type="text"
+											placeholder="Name"
+											name="name"
+											className="input input-bordered input-secondary w-full max-w-xs"
+										/>
+										<input
+											type="text"
+											placeholder="Phone"
+											name="phone"
+											className="input input-bordered input-secondary w-full max-w-xs"
+										/>
+									</div>
+									<button type="submit" className="btn btn-primary mt-7">
+										Submit
+									</button>
+								</form>
+							</div>
+						</>
+					) : (
 						<p className={`mt-3 ${login ? 'block' : 'hidden'}`}>
 							<span className=" text-white font-bold">Please Sign In to add a review</span>
 							<Link to="/signin" className="link ml-2">
