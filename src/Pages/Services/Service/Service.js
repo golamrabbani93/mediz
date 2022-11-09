@@ -30,6 +30,7 @@ const Service = () => {
 			reviewID: _id,
 			service_name: title,
 			name: name,
+			serviceImg: img,
 			img: user.photoURL,
 			email: user.email,
 			phone: phone,
@@ -150,6 +151,10 @@ const Service = () => {
 				</div>
 				{/* //*review section */}
 				<div className="testimonial mt-7">
+					<p className=" text-center text-white font-bold">
+						{reviews.length > 0 ? `Total Review ${reviews.length}` : 'No Review Found'}
+					</p>
+
 					{reviews.map((review) => (
 						<Review key={review._id} review={review}></Review>
 					))}
