@@ -1,9 +1,15 @@
 import React, {useContext} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import {AuthContext} from '../../../../contexts/AuthProvider/AuthProvider';
 
 const SignIn = () => {
 	const {userSignInWithEmail} = useContext(AuthContext);
+	// const navigate = useNavigate();
+	// const location = useLocation();
+	// const from = location.state?.from?.pathname || '/';
+	const navigate = useNavigate();
+	const location = useLocation();
+	const from = location.state?.from?.pathname || '/';
 	const handleSignIn = (e) => {
 		e.preventDefault();
 		const form = e.target;
@@ -12,9 +18,9 @@ const SignIn = () => {
 		console.log(email, password);
 		userSignInWithEmail(email, password)
 			.then((result) => {
-				const user = result.user;
+				// const user = result.user;
 				form.reset();
-				console.log('🚀🚀: handleSignIn -> user', user);
+				navigate(from, {replace: true});
 			})
 			.catch((err) => {
 				console.error(err);
