@@ -30,7 +30,7 @@ const Service = () => {
 			reviewID: _id,
 			service_name: title,
 			name: name,
-			img: img,
+			img: user.photoURL,
 			email: user.email,
 			phone: phone,
 			message: message,
@@ -59,6 +59,11 @@ const Service = () => {
 				setReviews(data);
 			});
 	}, [_id]);
+
+	//*reload
+	const handleReload = () => {
+		window.location.reload();
+	};
 	return (
 		<div>
 			{/* //*service details section */}
@@ -103,6 +108,7 @@ const Service = () => {
 								<form onSubmit={handleReview} className="modal-box relative">
 									<label
 										htmlFor="my-modal-6"
+										onClick={handleReload}
 										className="btn btn-sm btn-circle absolute right-2 top-2"
 									>
 										✕

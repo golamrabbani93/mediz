@@ -11,7 +11,12 @@ const Review = ({review}) => {
 				<h5 className="text-xl text-warning font-bold">{email}</h5>
 			</div>
 			<div className="img p-10 ">
-				<img className="rounded-full" style={{width: '100px', height: '100px'}} src={img} alt="" />
+				<img
+					className="rounded-full"
+					style={{width: '100px', height: '100px'}}
+					src={img}
+					alt={name}
+				/>
 			</div>
 		</div>
 	);
