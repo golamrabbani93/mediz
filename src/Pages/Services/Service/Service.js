@@ -10,16 +10,7 @@ const Service = () => {
 	const service = useLoaderData();
 	const [login, setLogin] = useState(false);
 	const [reviews, setReviews] = useState([]);
-	console.log('🚀🚀: Service -> reviews', reviews);
 	const {_id, img, title, price, description} = service;
-	const currentDate = new Date();
-	const [month, day, year] = [
-		currentDate.getMonth(),
-		currentDate.getDate(),
-		currentDate.getFullYear(),
-	];
-	const date = `${day}-${month}-${year}`;
-
 	const handleReview = (e) => {
 		e.preventDefault();
 		const form = e.target;
