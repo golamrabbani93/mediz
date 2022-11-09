@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Review = ({review}) => {
-	console.log('🚀🚀: Review -> review', review);
 	const {name, message, email, img} = review;
 	return (
 		<div className="single-testimonial flex border w-3/4 mx-auto justify-between items-center rounded-xl border-warning mt-5">

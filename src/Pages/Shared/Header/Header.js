@@ -15,6 +15,9 @@ const Header = () => {
 			<li className="mr-2">
 				<NavLink to="/services">Services</NavLink>
 			</li>
+			<li className="mr-2">
+				<NavLink to="/myreviews">My Reviews</NavLink>
+			</li>
 		</>
 	);
 	const handleSignOut = () => {
