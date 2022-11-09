@@ -15,7 +15,13 @@ const MyReviews = () => {
 			});
 	}, [setSpinner, user?.email]);
 	const handleDelete = (MyReview) => {
-		console.log(MyReview);
+		fetch(`http://localhost:5000/myreviews/${MyReview._id}`, {
+			method: 'DELETE',
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+			});
 	};
 	return (
 		<>
