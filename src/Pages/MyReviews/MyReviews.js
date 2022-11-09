@@ -14,7 +14,9 @@ const MyReviews = () => {
 				setSpinner(false);
 			});
 	}, [setSpinner, user?.email]);
-
+	const handleDelete = (MyReview) => {
+		console.log(MyReview);
+	};
 	return (
 		<>
 			{spinner ? (
@@ -35,7 +37,11 @@ const MyReviews = () => {
 							{spinner
 								? ''
 								: MyReviews.map((MyReview) => (
-										<SIngleReview key={MyReview._id} MyReview={MyReview}></SIngleReview>
+										<SIngleReview
+											key={MyReview._id}
+											MyReview={MyReview}
+											handleDelete={handleDelete}
+										></SIngleReview>
 								  ))}
 						</div>
 					</div>

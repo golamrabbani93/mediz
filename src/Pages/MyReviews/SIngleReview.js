@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SIngleReview = ({MyReview}) => {
+const SIngleReview = ({MyReview, handleDelete}) => {
 	const {date, serviceImg, service_name, message} = MyReview;
 	return (
 		<div className="card w-72 mx-auto md:w-96 bg-base-100 shadow-xl image-full">
@@ -12,7 +12,7 @@ const SIngleReview = ({MyReview}) => {
 				<p className="text-white font-bold mb-0">{message}</p>
 				<p className="text-white -mt-4">{date}</p>
 				<div className="card-actions mt-5 grid grid-cols-2 ">
-					<button className="btn btn-circle btn-secondary">
+					<button onClick={() => handleDelete(MyReview)} className="btn btn-circle btn-secondary">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							className="h-6 w-6"
