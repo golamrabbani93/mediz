@@ -2,11 +2,13 @@ import React, {useContext} from 'react';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
 import {AuthContext} from '../../../../contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
+import UseTitle from '../../../../hooks/UseTitle';
 const SignIn = () => {
-	const {userSignInWithEmail, googleSignIn, userSignOut} = useContext(AuthContext);
+	const {userSignInWithEmail, googleSignIn} = useContext(AuthContext);
 	const navigate = useNavigate();
 	const location = useLocation();
 	const from = location.state?.from?.pathname || '/';
+	UseTitle('Sign In');
 	const handleSignIn = (e) => {
 		e.preventDefault();
 		const form = e.target;

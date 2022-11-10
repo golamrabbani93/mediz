@@ -2,9 +2,11 @@ import React, {useContext} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {AuthContext} from '../../../../contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
+import UseTitle from '../../../../hooks/UseTitle';
 const SignUp = () => {
 	const {userCreateWithEmail, userProfileUpdate} = useContext(AuthContext);
 	const navigate = useNavigate();
+	UseTitle('SignUp');
 	const handleSignUp = (e) => {
 		e.preventDefault();
 		const form = e.target;

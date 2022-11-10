@@ -1,9 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import UseTitle from '../../../hooks/UseTitle';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 
 const NotFoundPage = () => {
+	UseTitle('404 || Mediz');
 	return (
 		<div>
 			<Header></Header>

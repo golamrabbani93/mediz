@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
+import UseTitle from '../../hooks/UseTitle';
 import SingleService from '../Home/Services/SingleService/SingleService';
 const Services = () => {
+	UseTitle('Services || Mediz');
 	const [services, setServices] = useState([]);
 	useEffect(() => {
 		const url = `http://localhost:5000/services`;

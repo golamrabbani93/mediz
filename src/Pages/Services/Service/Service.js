@@ -6,7 +6,9 @@ import {FaQuoteRight} from 'react-icons/fa';
 import {AuthContext} from '../../../contexts/AuthProvider/AuthProvider';
 import Review from '../Review/Review';
 import toast from 'react-hot-toast';
+import UseTitle from '../../../hooks/UseTitle';
 const Service = () => {
+	UseTitle('Service || Mediz');
 	const {user} = useContext(AuthContext);
 	const service = useLoaderData();
 	const [login, setLogin] = useState(false);

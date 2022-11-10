@@ -3,7 +3,9 @@ import {AuthContext} from '../../contexts/AuthProvider/AuthProvider';
 import SIngleReview from './SIngleReview';
 import {ScaleLoader} from 'react-spinners';
 import toast from 'react-hot-toast';
+import UseTitle from '../../hooks/UseTitle';
 const MyReviews = () => {
+	UseTitle('My Reviews || Mediz');
 	const {user, spinner, setSpinner, userSignOut} = useContext(AuthContext);
 	const [MyReviews, SetMyReviews] = useState();
 	useEffect(() => {

@@ -1,7 +1,9 @@
 import React from 'react';
 import toast from 'react-hot-toast';
+import UseTitle from '../../hooks/UseTitle';
 
 const AddServices = () => {
+	UseTitle('Add Service || Mediz');
 	const addServices = (e) => {
 		e.preventDefault();
 		const form = e.target;
@@ -33,7 +35,7 @@ const AddServices = () => {
 	};
 	return (
 		<div className="container mx-auto text-white text-center my-7">
-			<h2 className="text-5xl mt-10 mb-8">Update </h2>
+			<h2 className="text-5xl mt-10 mb-8">Add Service </h2>
 			<form onSubmit={addServices}>
 				<div className="">
 					<textarea
