@@ -15,6 +15,8 @@ const Service = () => {
 	const [reviews, setReviews] = useState([]);
 	const {_id, img, title, price, description} = service;
 	const handleReview = (e) => {
+		var isodate = new Date();
+		var localDateTime = isodate.toLocaleDateString() + ' ' + isodate.toLocaleTimeString();
 		e.preventDefault();
 		const form = e.target;
 		const message = form.message.value;
@@ -29,6 +31,7 @@ const Service = () => {
 			email: user.email,
 			phone: phone,
 			message: message,
+			date: localDateTime,
 		};
 		fetch('https://mediz-server.vercel.app/review', {
 			method: 'POST',

@@ -6,7 +6,7 @@ const SIngleReview = ({MyReview, handleDelete}) => {
 	return (
 		<div className="card w-72 mx-auto md:w-96 bg-base-100 shadow-xl image-full">
 			<figure>
-				<img src={serviceImg} alt="Shoes" />
+				<img src={serviceImg} alt="Shoes" style={{width: '400px', height: '257px'}} />
 			</figure>
 			<div className="card-body ">
 				<h2 className="card-title text-white font-bold">{service_name}</h2>
