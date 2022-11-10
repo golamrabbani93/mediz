@@ -1,9 +1,10 @@
 import React, {useContext} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {AuthContext} from '../../../../contexts/AuthProvider/AuthProvider';
-
+import toast from 'react-hot-toast';
 const SignUp = () => {
 	const {userCreateWithEmail, userProfileUpdate} = useContext(AuthContext);
+	const navigate = useNavigate();
 	const handleSignUp = (e) => {
 		e.preventDefault();
 		const form = e.target;
@@ -17,9 +18,12 @@ const SignUp = () => {
 				// const user = result.user;
 				form.reset();
 				handleUpdate(name, photo);
+				toast.success('Sign UP Successfull');
+				navigate('/signin');
 			})
 			.catch((err) => {
 				console.error(err);
+				toast.error(`Sign Up UnSuccessfull ${err.message}`);
 			});
 	};
 

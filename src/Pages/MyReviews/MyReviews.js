@@ -48,7 +48,7 @@ const MyReviews = () => {
 					) : (
 						<h2 className="text-center my-6 text-3xl font-bold text-white">No Reviews Found</h2>
 					)}
-					<div className="reviews-container container mx-auto">
+					<div className="reviews-container container mx-auto mb-4 md:mb-10">
 						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 							{spinner
 								? ''

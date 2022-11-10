@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
 import {AuthContext} from '../../../../contexts/AuthProvider/AuthProvider';
-
+import toast from 'react-hot-toast';
 const SignIn = () => {
 	const {userSignInWithEmail} = useContext(AuthContext);
 	const navigate = useNavigate();
@@ -17,10 +17,13 @@ const SignIn = () => {
 			.then((result) => {
 				// const user = result.user;
 				form.reset();
+				toast.success('Sign In Successfull');
+
 				navigate(from, {replace: true});
 			})
 			.catch((err) => {
-				console.error(err);
+				console.error(err.message);
+				toast.error(`Sign In UnSuccessfull ${err.message}`);
 			});
 	};
 	return (
