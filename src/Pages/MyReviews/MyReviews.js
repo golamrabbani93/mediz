@@ -9,7 +9,7 @@ const MyReviews = () => {
 	const {user, spinner, setSpinner, userSignOut} = useContext(AuthContext);
 	const [MyReviews, SetMyReviews] = useState();
 	useEffect(() => {
-		fetch(`http://localhost:5000/myreviews?email=${user?.email}`, {
+		fetch(`https://mediz-server.vercel.app/myreviews?email=${user?.email}`, {
 			headers: {
 				authorization: `Bearer ${localStorage.getItem('Mediz-token')}`,
 			},
@@ -28,7 +28,7 @@ const MyReviews = () => {
 	const handleDelete = (MyReview) => {
 		const deleteRivew = window.confirm('Are You Sure To Delete Your Review');
 		if (deleteRivew) {
-			fetch(`http://localhost:5000/myreviews/${MyReview._id}`, {
+			fetch(`https://mediz-server.vercel.app/myreviews/${MyReview._id}`, {
 				method: 'DELETE',
 			})
 				.then((res) => res.json())

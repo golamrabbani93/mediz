@@ -15,7 +15,7 @@ const UpdateReview = () => {
 			name: name,
 			message: message,
 		};
-		fetch(`http://localhost:5000/review/${_id}`, {
+		fetch(`https://mediz-server.vercel.app/review/${_id}`, {
 			method: 'PUT',
 			headers: {
 				'content-type': 'application/json',

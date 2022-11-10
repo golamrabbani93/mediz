@@ -30,7 +30,7 @@ const Service = () => {
 			phone: phone,
 			message: message,
 		};
-		fetch('http://localhost:5000/review', {
+		fetch('https://mediz-server.vercel.app/review', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
@@ -46,7 +46,7 @@ const Service = () => {
 
 	//*load all review
 	useEffect(() => {
-		const url = `http://localhost:5000/review?id=${_id}`;
+		const url = `https://mediz-server.vercel.app/review?id=${_id}`;
 		fetch(url)
 			.then((res) => res.json())
 			.then((data) => {

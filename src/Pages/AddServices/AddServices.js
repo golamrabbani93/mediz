@@ -18,7 +18,7 @@ const AddServices = () => {
 			price: price,
 			description: description,
 		};
-		fetch(`http://localhost:5000/services/`, {
+		fetch(`https://mediz-server.vercel.app/services/`, {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
