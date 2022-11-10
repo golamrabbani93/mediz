@@ -70,7 +70,12 @@ const Service = () => {
 						<p className="pb-6 w-3/4 mx-auto">{description}</p>
 						<PhotoProvider>
 							<PhotoView src={img}>
-								<img className="p-4 rounded-3xl cursor-pointer mx-auto" src={img} alt="Shoes" />
+								<img
+									className="p-4 rounded-3xl cursor-pointer mx-auto"
+									src={img}
+									alt="Shoes"
+									style={{width: '400px', height: '257px'}}
+								/>
 							</PhotoView>
 						</PhotoProvider>
 						<button className="btn btn-primary">Get Started</button>
