@@ -1,27 +1,35 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 import {useLoaderData} from 'react-router-dom';
 
 const UpdateReview = () => {
 	const review = useLoaderData();
 	console.log('🚀🚀: UpdateReview -> review', review);
-	const {message, name, email} = review;
+	const {_id, message, name, email} = review;
 	const handleUpdate = (e) => {
 		e.preventDefault();
 		const form = e.target;
 		const message = form.message.value;
 		const name = form.name.value;
 		console.log(message, name);
-		// const phone = form.phone.value;
-		// const review = {
-		// 	reviewID: _id,
-		// 	service_name: title,
-		// 	name: name,
-		// 	serviceImg: img,
-		// 	img: user.photoURL,
-		// 	email: user.email,
-		// 	phone: phone,
-		// 	message: message,
-		// };
+		const review = {
+			name: name,
+			message: message,
+		};
+		fetch(`http://localhost:5000/review/${_id}`, {
+			method: 'PUT',
+			headers: {
+				'content-type': 'application/json',
+			},
+			body: JSON.stringify(review),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				if (data.modifiedCount > 0) {
+					toast.success('Upadte SuccessFul');
+				}
+			});
 	};
 	return (
 		<div className="container mx-auto text-white text-center mt-7">
