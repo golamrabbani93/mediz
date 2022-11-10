@@ -5,6 +5,7 @@ import 'react-photo-view/dist/react-photo-view.css';
 import {FaQuoteRight} from 'react-icons/fa';
 import {AuthContext} from '../../../contexts/AuthProvider/AuthProvider';
 import Review from '../Review/Review';
+import toast from 'react-hot-toast';
 const Service = () => {
 	const {user} = useContext(AuthContext);
 	const service = useLoaderData();
@@ -36,9 +37,8 @@ const Service = () => {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
 				form.reset();
-				// toast.success('Order Successfull');
+				toast.success('Add Review Successfull  please Reload The Page');
 			});
 	};
 
