@@ -3,7 +3,7 @@ import {Link, useLocation, useNavigate} from 'react-router-dom';
 import {AuthContext} from '../../../../contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 const SignIn = () => {
-	const {userSignInWithEmail} = useContext(AuthContext);
+	const {userSignInWithEmail, googleSignIn} = useContext(AuthContext);
 	const navigate = useNavigate();
 	const location = useLocation();
 	const from = location.state?.from?.pathname || '/';
@@ -19,6 +19,17 @@ const SignIn = () => {
 				form.reset();
 				toast.success('Sign In Successfull');
 
+				navigate(from, {replace: true});
+			})
+			.catch((err) => {
+				console.error(err.message);
+				toast.error(`Sign In UnSuccessfull ${err.message}`);
+			});
+	};
+	const handlegoogle = () => {
+		googleSignIn()
+			.then((result) => {
+				toast.success('Google Sign In Successfull');
 				navigate(from, {replace: true});
 			})
 			.catch((err) => {
@@ -70,6 +81,15 @@ const SignIn = () => {
 								<button className="btn btn-primary">Sign In</button>
 							</div>
 						</form>
+						<div className="social mx-auto pb-6">
+							<p className="text-center">Or sign In</p>
+							<button
+								onClick={handlegoogle}
+								className=" mt-4  border border-warning px-2 py-1 rounded-xl"
+							>
+								google
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
