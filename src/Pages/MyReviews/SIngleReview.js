@@ -1,7 +1,8 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const SIngleReview = ({MyReview, handleDelete}) => {
-	const {date, serviceImg, service_name, message} = MyReview;
+	const {_id, date, serviceImg, service_name, message} = MyReview;
 	return (
 		<div className="card w-72 mx-auto md:w-96 bg-base-100 shadow-xl image-full">
 			<figure>
@@ -28,7 +29,9 @@ const SIngleReview = ({MyReview, handleDelete}) => {
 							/>
 						</svg>
 					</button>
-					<button className="btn btn-secondary">Edit</button>
+					<Link to={`/update/${_id}`}>
+						<button className="btn btn-secondary">Edit</button>
+					</Link>
 				</div>
 			</div>
 		</div>
