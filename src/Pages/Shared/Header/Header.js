@@ -60,11 +60,15 @@ const Header = () => {
 									className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-300 rounded-box w-52 "
 								>
 									{navlink}
-									<div className="navbar-end lg:hidden w-full">
-										<Link to="/login" className="btn">
-											Login
-										</Link>
-									</div>
+									{user?.uid ? (
+										''
+									) : (
+										<div className="navbar-end lg:hidden w-full">
+											<Link to="/login" className="btn">
+												Login
+											</Link>
+										</div>
+									)}
 								</ul>
 							</div>
 						</div>

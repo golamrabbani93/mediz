@@ -62,7 +62,7 @@ const AddServices = () => {
 						type="text"
 						placeholder="Price"
 						name="price"
-						className="ml-5  mt-5 input input-bordered input-secondary w-full max-w-xs"
+						className="md:ml-5  mt-5 input input-bordered input-secondary w-full max-w-xs"
 					/>
 				</div>
 				<button className="btn btn-secondary mt-5" type="submit">

@@ -5,7 +5,7 @@ import 'react-photo-view/dist/react-photo-view.css';
 const SingleService = ({service}) => {
 	const {_id, img, title, price, description} = service;
 	return (
-		<div>
+		<div className="m-4">
 			<div className="card card-compact  bg-base-300 shadow-xl">
 				<figure>
 					<PhotoProvider>

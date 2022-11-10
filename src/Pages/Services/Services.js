@@ -13,7 +13,7 @@ const Services = () => {
 	return (
 		<div>
 			<div className="breadcum bg-base-300 h-80 w-full flex justify-center items-center">
-				<h2 className="text-8xl font-bold text-white">Services</h2>
+				<h2 className="text-4xl md:text-8xl font-bold text-white">Services</h2>
 			</div>
 			<div className="container mx-auto my-20 ">
 				<h5 className="text-4xl font-bold text-white text-center">
