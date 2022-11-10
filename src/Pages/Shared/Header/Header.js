@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+import {FaUserAlt} from 'react-icons/fa';
 import {Link, NavLink} from 'react-router-dom';
 import {AuthContext} from '../../../contexts/AuthProvider/AuthProvider';
 import './Header.css';
@@ -100,11 +101,15 @@ const Header = () => {
 					{user?.uid ? (
 						<div className="dropdown dropdown-end ">
 							<label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-								<div className="avatar online">
-									<div className="w-10 rounded-full">
-										<img src={user?.photoURL} alt="" />
+								{user?.photoURL ? (
+									<div className="avatar online">
+										<div className="w-10 rounded-full">
+											<img src={user?.photoURL} alt="" />
+										</div>
 									</div>
-								</div>
+								) : (
+									<FaUserAlt />
+								)}
 							</label>
 							<ul
 								tabIndex={0}

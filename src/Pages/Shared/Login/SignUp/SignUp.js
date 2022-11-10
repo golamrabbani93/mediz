@@ -57,6 +57,7 @@ const SignUp = () => {
 									type="text"
 									placeholder="Full Name"
 									name="name"
+									required
 									className="input input-bordered"
 								/>
 							</div>
@@ -79,6 +80,7 @@ const SignUp = () => {
 									type="email"
 									placeholder="Email"
 									name="email"
+									required
 									className="input input-bordered"
 								/>
 							</div>
@@ -90,6 +92,7 @@ const SignUp = () => {
 									type="password"
 									placeholder="Password"
 									name="password"
+									required
 									className="input input-bordered"
 								/>
 								<label className="label">

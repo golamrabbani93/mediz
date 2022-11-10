@@ -118,12 +118,14 @@ const Service = () => {
 										className="textarea textarea-secondary"
 										placeholder="Review Message"
 										name="message"
+										required
 										style={{width: '300px'}}
 									></textarea>
 									<div className="grid grid-cols-2 gap-5 mt-4 justify-center items-center">
 										<input
 											type="text"
 											placeholder="Name"
+											required
 											name="name"
 											className="input input-bordered input-secondary w-full max-w-xs"
 										/>

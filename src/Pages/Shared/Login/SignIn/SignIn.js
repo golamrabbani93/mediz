@@ -83,6 +83,7 @@ const SignIn = () => {
 								<input
 									type="email"
 									name="email"
+									required
 									placeholder="email"
 									className="input input-bordered"
 								/>
@@ -94,6 +95,7 @@ const SignIn = () => {
 								<input
 									type="password"
 									name="password"
+									required
 									placeholder="password"
 									className="input input-bordered"
 								/>
@@ -117,7 +119,7 @@ const SignIn = () => {
 							<p className="text-center">Or sign In With</p>
 							<button
 								onClick={handlegoogle}
-								className=" mt-4  border border-warning px-2 py-1 rounded-xl"
+								className="ml-5 mt-4  border border-warning px-2 py-1 rounded-xl"
 							>
 								Google
 							</button>

@@ -43,6 +43,7 @@ const AddServices = () => {
 						style={{width: '280px'}}
 						placeholder="Description"
 						name="description"
+						required
 					></textarea>
 				</div>
 				<div className="text-center m-4 md:m-0">
@@ -50,6 +51,7 @@ const AddServices = () => {
 						type="text"
 						placeholder="Title"
 						name="title"
+						required
 						className="mt-5 input input-bordered input-secondary w-full max-w-xs"
 					/>
 					<br />
@@ -57,12 +59,14 @@ const AddServices = () => {
 					<input
 						type="text"
 						placeholder="Photo URL"
+						required
 						name="photo"
 						className="  mt-5 input input-bordered input-secondary w-full max-w-xs"
 					/>
 					<input
 						type="text"
 						placeholder="Price"
+						required
 						name="price"
 						className="md:ml-5  mt-5 input input-bordered input-secondary w-full max-w-xs"
 					/>
