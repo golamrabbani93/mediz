@@ -18,7 +18,6 @@ const SignIn = () => {
 				// const user = result.user;
 				form.reset();
 				toast.success('Sign In Successfull');
-
 				navigate(from, {replace: true});
 			})
 			.catch((err) => {
@@ -29,8 +28,8 @@ const SignIn = () => {
 	const handlegoogle = () => {
 		googleSignIn()
 			.then((result) => {
-				toast.success('Google Sign In Successfull');
 				navigate(from, {replace: true});
+				toast.success('Google Sign In Successfull');
 			})
 			.catch((err) => {
 				console.error(err.message);
@@ -82,12 +81,12 @@ const SignIn = () => {
 							</div>
 						</form>
 						<div className="social mx-auto pb-6">
-							<p className="text-center">Or sign In</p>
+							<p className="text-center">Or sign In With</p>
 							<button
 								onClick={handlegoogle}
 								className=" mt-4  border border-warning px-2 py-1 rounded-xl"
 							>
-								google
+								Google
 							</button>
 						</div>
 					</div>

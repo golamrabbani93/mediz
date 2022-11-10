@@ -43,6 +43,7 @@ const AuthProvider = ({children}) => {
 		return updateProfile(auth.currentUser, profile);
 	};
 	const googleSignIn = () => {
+		setLoader(true);
 		return signInWithPopup(auth, googleProvider);
 	};
 	//*User Sign Out
