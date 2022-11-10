@@ -25,6 +25,9 @@ const Header = () => {
 			) : (
 				''
 			)}
+			<li className="mr-2">
+				<NavLink to="/blog">Blog</NavLink>
+			</li>
 		</>
 	);
 	const handleSignOut = () => {
