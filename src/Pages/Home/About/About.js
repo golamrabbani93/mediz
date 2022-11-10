@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from 'react';
 import leftImg from '../../../assets/box-3.jpg';
 import RightImg from '../../../assets/box-4.jpg';
-import SingleAbout from './SingleAbout';
+
 const About = () => {
 	const leftStyle = {
 		backgroundImage: `url('${leftImg}')`,
