@@ -32,7 +32,7 @@ const AddServices = () => {
 			});
 	};
 	return (
-		<div className="container mx-auto text-white text-center mt-7">
+		<div className="container mx-auto text-white text-center my-7">
 			<h2 className="text-5xl mt-10 mb-8">Update </h2>
 			<form onSubmit={addServices}>
 				<div className="">
