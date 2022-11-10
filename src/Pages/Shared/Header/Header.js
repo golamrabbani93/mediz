@@ -18,6 +18,13 @@ const Header = () => {
 			<li className="mr-2">
 				<NavLink to="/myreviews">My Reviews</NavLink>
 			</li>
+			{user?.uid ? (
+				<li className="mr-2">
+					<NavLink to="/addservice">Add Service</NavLink>
+				</li>
+			) : (
+				''
+			)}
 		</>
 	);
 	const handleSignOut = () => {

@@ -4,7 +4,6 @@ import {useLoaderData} from 'react-router-dom';
 
 const UpdateReview = () => {
 	const review = useLoaderData();
-	console.log('🚀🚀: UpdateReview -> review', review);
 	const {_id, message, name, email} = review;
 	const handleUpdate = (e) => {
 		e.preventDefault();
@@ -25,7 +24,6 @@ const UpdateReview = () => {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
 				if (data.modifiedCount > 0) {
 					toast.success('Upadte SuccessFul');
 				}
