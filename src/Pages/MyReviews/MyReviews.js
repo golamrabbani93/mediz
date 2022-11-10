@@ -4,17 +4,25 @@ import SIngleReview from './SIngleReview';
 import {ScaleLoader} from 'react-spinners';
 import toast from 'react-hot-toast';
 const MyReviews = () => {
-	const {user, spinner, setSpinner} = useContext(AuthContext);
+	const {user, spinner, setSpinner, userSignOut} = useContext(AuthContext);
 	const [MyReviews, SetMyReviews] = useState();
 	useEffect(() => {
-		const url = `http://localhost:5000/myreviews?email=${user?.email}`;
-		fetch(url)
-			.then((res) => res.json())
+		fetch(`http://localhost:5000/myreviews?email=${user?.email}`, {
+			headers: {
+				authorization: `Bearer ${localStorage.getItem('Mediz-token')}`,
+			},
+		})
+			.then((res) => {
+				if (res.status === 401 || res.status === 401) {
+					userSignOut();
+				}
+				return res.json();
+			})
 			.then((data) => {
 				SetMyReviews(data);
 				setSpinner(false);
 			});
-	}, [setSpinner, user?.email]);
+	}, [setSpinner, userSignOut, user?.email]);
 	const handleDelete = (MyReview) => {
 		const deleteRivew = window.confirm('Are You Sure To Delete Your Review');
 		if (deleteRivew) {

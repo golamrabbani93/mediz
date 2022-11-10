@@ -3,7 +3,7 @@ import {Link, useLocation, useNavigate} from 'react-router-dom';
 import {AuthContext} from '../../../../contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 const SignIn = () => {
-	const {userSignInWithEmail, googleSignIn} = useContext(AuthContext);
+	const {userSignInWithEmail, googleSignIn, userSignOut} = useContext(AuthContext);
 	const navigate = useNavigate();
 	const location = useLocation();
 	const from = location.state?.from?.pathname || '/';
@@ -12,13 +12,27 @@ const SignIn = () => {
 		const form = e.target;
 		const email = form.email.value;
 		const password = form.password.value;
-		console.log(email, password);
 		userSignInWithEmail(email, password)
 			.then((result) => {
-				// const user = result.user;
+				const user = result.user;
 				form.reset();
 				toast.success('Sign In Successfull');
-				navigate(from, {replace: true});
+				// *jwt token
+				const currentUser = {
+					email: user.email,
+				};
+				fetch('http://localhost:5000/jwt', {
+					method: 'POST',
+					headers: {
+						'content-Type': 'application/json',
+					},
+					body: JSON.stringify(currentUser),
+				})
+					.then((res) => res.json())
+					.then((data) => {
+						localStorage.setItem('Mediz-token', data.token);
+						navigate(from, {replace: true});
+					});
 			})
 			.catch((err) => {
 				console.error(err.message);
